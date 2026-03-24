@@ -1,0 +1,23 @@
+import React from 'react';
+import { createUseStyles } from 'react-jss';
+
+// 1. Define your styles
+const useStyles = createUseStyles({
+  myButton: {
+    color: 'green',
+    '& span': { fontWeight: 'bold' } // Nesting
+  },
+  myLabel: { fontStyle: 'italic' }
+});
+
+// 2. Use the styles in your component
+const Button = ({ children }) => {
+  const classes = useStyles();
+  return (
+    <button className={classes.myButton}>
+      <span className={classes.myLabel}>{children}</span>
+    </button>
+  );
+};
+
+export default Button;
